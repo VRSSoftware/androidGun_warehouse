@@ -165,6 +165,7 @@ public class GeneralFragmentAnd
                 }
                 progressDialog.dismiss();
                 editTextBarcode.setText("");
+                editTextRemarkTwo.requestFocus();
             }
 
             @Override
@@ -197,7 +198,7 @@ public class GeneralFragmentAnd
         textViewProductName.setText("");
         textViewSystemQuantity.setText("");
         textViewUnit.setText("");
-        editTextRemarkOne.setText("");
+//        editTextRemarkOne.setText("");
         editTextRemarkTwo.setText("");
     }
 //------------------------------------------------------------------------------------------------------------

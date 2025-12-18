@@ -156,7 +156,36 @@ public class ZebraPrinterTask {
         String configLabel = null;
 
         if (checkStockModel!=null) {
+            String udSelPriceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
 
+// ZPL font settings
+            int fontHeight = 20;   // height in dots (from ^A0R,30,30)
+            int endY = 530;       // you want the last character to end here
+            int stringlen= udSelPriceUnitLabel.length();
+// Calculate dynamic start position so the text ends at Y = 1560
+            int startY = endY -  (int)(udSelPriceUnitLabel.length() * 8.5);
+
+// Ensure it doesn't go negative if string is too long
+            if (startY < 0) startY = 0;
+            //30 chars
+            int start = 275;
+            int labelLength = udSelPriceUnitLabel.length();
+
+            StringBuilder whiteSpacesBuilder = new StringBuilder();
+
+            if (labelLength < 30) {
+                int spacesToAdd = 30 - labelLength;
+                for (int i = 0; i < spacesToAdd; i++) {
+                    whiteSpacesBuilder.append("  ");
+                }
+            }
+            String whiteSpaces = whiteSpacesBuilder.toString();
+
+
+            String priceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
+            String labelWithDollar = (priceUnitLabel != null && !priceUnitLabel.equals(""))
+                    ? "$" + priceUnitLabel
+                    : "";
 
 // set height add ^PW400 "^POI^PW400^MNN^LL200^LH0,0" + "\r\n" +
             configLabel =
@@ -176,8 +205,18 @@ public class ZebraPrinterTask {
                             "^FO15,160^A0N,30,20" +
                             "^FDCase Size:"+checkStockModel.getCasesizeQty()+" ^FS"+
 
-                            "^FO250,270^A0N,30,20" +
+                            "^FO250,250^A0N,30,20" +
                             "^FDDept: "+checkStockModel.getItemsubgrpName()+"^FS"+
+
+
+                            "^FO300,285"+
+                            "^FB275,1,0,R,0,0"+
+                            "^A0N,20,20"+
+                            "^FD" + labelWithDollar + "^FS"+
+//                            "^FD$"+checkStockModel.getUdSelPriceUnitLabel()+"^FS"+
+
+
+
 
                             "^FO15,210"+
                             "^A0,30,20" +
@@ -205,6 +244,23 @@ public class ZebraPrinterTask {
         if (checkStockModel!=null) {
 // set height add ^PW400 "^POI^PW400^MNN^LL1400^LH0,0" + "\r\n" +
 
+            String udSelPriceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
+
+// ZPL font settings
+            int fontHeight = 30;   // height in dots (from ^A0R,30,30)
+            int endY = 1560;       // you want the last character to end here
+
+// Calculate dynamic start position so the text ends at Y = 1560
+            int startY = endY - (udSelPriceUnitLabel.length() * fontHeight);
+
+// Ensure it doesn't go negative if string is too long
+            if (startY < 0) startY = 0;
+
+            String priceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
+            String labelWithDollar = (priceUnitLabel != null && !priceUnitLabel.equals(""))
+                    ? "$" + priceUnitLabel
+                    : "";
+
             configLabel =
                     "^XA" +
                             "^PO^PW600" +
@@ -228,10 +284,16 @@ public class ZebraPrinterTask {
                             "^FO250,84^A0R,50,30" +
                             "^FDCase Size:"+checkStockModel.getCasesizeQty()+" ^FS"+
 
-                            "^FO20,84^A0R,50,30" +
+                            "^FO35,84^A0R,50,30" +
                             "^FDDept : "+checkStockModel.getItemsubgrpName()+"^FS"+
 
-                            "^FO20,850^A0R,50,30" +
+                            "^FO10,815"+
+                            "^FB580,1,0,R,0,0"+
+                            "^A0R,30,30"+
+                            "^FD" + labelWithDollar + "^FS"+
+//                            "^FD$"+checkStockModel.getUdSelPriceUnitLabel()+"^FS"+
+
+                            "^FO35,830^A0R,50,30" +
                             "^FDDept Number: "+checkStockModel.getItemsubgrpId()+"^FS"+
 
                             "^CI0,21,36 ^FO200,800 ^A0R,180,100^FD$"+checkStockModel.getMrp()+"^FS"+
@@ -285,6 +347,7 @@ public class ZebraPrinterTask {
 
                             "^FO290,275^A0N,30,20" +
                             "^FDDept:"+checkStockModel.getItemsubgrpName()+"^FS"+
+
 
                             "^FO15,210"+
                             "^A0,30,20" +
@@ -503,8 +566,9 @@ public class ZebraPrinterTask {
                             "^FO15,160^A0N,30,20" +
                             "^FD Case Size:"+checkStockModel.getCasesizeQty()+" ^FS"+
 
-                            "^FO250,270^A0N,30,20" +
+                            "^FO250,250^A0N,30,20" +
                             "^FD Dept: "+checkStockModel.getItemsubgrpName()+"^FS"+
+
 
                             "^FO15,210"+
                             "^A0,30,20" +
@@ -530,86 +594,86 @@ public class ZebraPrinterTask {
         if (checkStockModel!=null) {
 // set height add ^PW400 "^POI^PW400^MNN^LL1400^LH0,0" + "\r\n" +
 
-//            configLabel =
-//                    "^XA" +
-//                            "^PO^PW600" +
-//                            "^00^MNN^LL1400^LH0,0" + "\r\n" +
-//                            "^FO130,84"+
-//                            "^A0,30,20" +
-//                            "^BY2\n" +
-//                            "^BCR,100,Y,N,N\n" +
-//                            "^FD"+checkStockModel.getBarcode()+"^FS\n" +
-//
-//                            "^FO330,84^A0R,100,100" +
-//                            "^FB 1000,2"+
-//                            "^FD"+checkStockModel.getItemName()+"^FS"+
-//
-//                            "^FO440,1230^A0R,40,30" +
-//                            "^FD "+date+"^FS"+
-//
-//                            "^FO380,1310^A0R,40,30" +
-//                            "^FD " +checkStockModel.getGrading()+"^FS"+
-//
-//                            "^FO370,900^A0R,50,40" +
-//                            "^CI0,21,36^FD WAS: $"+checkStockModel.getWasSaleRate()+"^FS"+
-//
-//                            "^FO250,84^A0R,50,30" +
-//                            "^FDCase Size:"+checkStockModel.getCasesizeQty()+" ^FS"+
-//
-//                            "^FO20,84^A0R,50,30" +
-//                            "^FDDept : "+checkStockModel.getItemsubgrpName()+"^FS"+
-//
-//                            "^FO20,850^A0R,50,30" +
-//                            "^FDDept Number: "+checkStockModel.getItemsubgrpId()+"^FS"+
-//
-//                            "^CI0,21,36 ^FO120,720 ^A0R,150,90^FD NOW: $"+checkStockModel.getMrp()+"^FS"+
-//                            "^XZ";
-
-
-            //changed by sandesh 30-10-2025
             configLabel =
                     "^XA" +
                             "^PO^PW600" +
                             "^00^MNN^LL1400^LH0,0" + "\r\n" +
-
-                            // Barcode position changed: from ^FO130,84 → ^FO150,84
-                            "^FO150,84" +
+                            "^FO130,84"+
                             "^A0,30,20" +
                             "^BY2\n" +
                             "^BCR,100,Y,N,N\n" +
-                            "^FD" + checkStockModel.getBarcode() + "^FS\n" +
+                            "^FD"+checkStockModel.getBarcode()+"^FS\n" +
 
-                            // Item name position changed: ^FO330,84 → ^FO350,84
-                            "^FO350,84^A0R,100,100" +
-                            "^FB1000,2" +
-                            "^FD" + checkStockModel.getItemName() + "^FS" +
+                            "^FO330,84^A0R,100,100" +
+                            "^FB 1000,2"+
+                            "^FD"+checkStockModel.getItemName()+"^FS"+
 
                             "^FO440,1230^A0R,40,30" +
-                            "^FD " + date + "^FS" +
+                            "^FD "+date+"^FS"+
 
                             "^FO380,1310^A0R,40,30" +
-                            "^FD " + checkStockModel.getGrading() + "^FS" +
+                            "^FD " +checkStockModel.getGrading()+"^FS"+
 
                             "^FO370,900^A0R,50,40" +
-                            "^CI0,21,36^FD WAS: $" + checkStockModel.getWasSaleRate() + "^FS" +
+                            "^CI0,21,36^FD WAS: $"+checkStockModel.getWasSaleRate()+"^FS"+
 
-                            // Case size position changed: ^FO250,84 → ^FO270,84
-                            "^FO270,84^A0R,50,30" +
-                            "^FDCase Size:" + checkStockModel.getCasesizeQty() + "^FS" +
+                            "^FO250,84^A0R,50,30" +
+                            "^FDCase Size:"+checkStockModel.getCasesizeQty()+" ^FS"+
 
-                            // Dept position changed: ^FO20,84 → ^FO50,84
-                            "^FO50,84^A0R,50,30" +
-                            "^FDDept : " + checkStockModel.getItemsubgrpName() + "^FS" +
+                            "^FO20,84^A0R,50,30" +
+                            "^FDDept : "+checkStockModel.getItemsubgrpName()+"^FS"+
 
-                            // New field added here
-                            "^FO10,850^A0R,30,30" +
-                            "^FDnew field^FS" +
+                            "^FO20,850^A0R,50,30" +
+                            "^FDDept Number: "+checkStockModel.getItemsubgrpId()+"^FS"+
 
-                            // Dept Number position changed: ^FO20,850 → ^FO50,850
-                            "^FO50,850^A0R,50,30" +
-                            "^FDDept Number: " + checkStockModel.getItemsubgrpId() + "^FS" +
-                            "^CI0,21,36 ^FO120,720 ^A0R,150,90^FD NOW: $" + checkStockModel.getMrp() + "^FS" +
+                            "^CI0,21,36 ^FO120,720 ^A0R,150,90^FD NOW: $"+checkStockModel.getMrp()+"^FS"+
                             "^XZ";
+
+
+//            //changed by sandesh 30-10-2025
+//            configLabel =
+//                    "^XA" +
+//                            "^PO^PW600" +
+//                            "^00^MNN^LL1400^LH0,0" + "\r\n" +
+//
+//                            // Barcode position changed: from ^FO130,84 → ^FO150,84
+//                            "^FO150,84" +
+//                            "^A0,30,20" +
+//                            "^BY2\n" +
+//                            "^BCR,100,Y,N,N\n" +
+//                            "^FD" + checkStockModel.getBarcode() + "^FS\n" +
+//
+//                            // Item name position changed: ^FO330,84 → ^FO350,84
+//                            "^FO350,84^A0R,100,100" +
+//                            "^FB1000,2" +
+//                            "^FD" + checkStockModel.getItemName() + "^FS" +
+//
+//                            "^FO440,1230^A0R,40,30" +
+//                            "^FD " + date + "^FS" +
+//
+//                            "^FO380,1310^A0R,40,30" +
+//                            "^FD " + checkStockModel.getGrading() + "^FS" +
+//
+//                            "^FO370,900^A0R,50,40" +
+//                            "^CI0,21,36^FD WAS: $" + checkStockModel.getWasSaleRate() + "^FS" +
+//
+//                            // Case size position changed: ^FO250,84 → ^FO270,84
+//                            "^FO270,84^A0R,50,30" +
+//                            "^FDCase Size:" + checkStockModel.getCasesizeQty() + "^FS" +
+//
+//                            // Dept position changed: ^FO20,84 → ^FO50,84
+//                            "^FO50,84^A0R,50,30" +
+//                            "^FDDept : " + checkStockModel.getItemsubgrpName() + "^FS" +
+//
+//                            // New field added here
+//                            "^FO50,1230^A0R,30,30" +
+//                            "^FD$" + checkStockModel.getUdSelPriceUnitLabel()+"^FS" +
+//
+//                            // Dept Number position changed: ^FO20,850 → ^FO50,850
+//                            "^FO50,850^A0R,50,30" +
+//                            "^FDDept Number: " + checkStockModel.getItemsubgrpId() + "^FS" +
+//                            "^CI0,21,36 ^FO120,720 ^A0R,150,90^FD NOW: $" + checkStockModel.getMrp() + "^FS" +
+//                            "^XZ";
 
 
         }

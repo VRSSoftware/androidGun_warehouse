@@ -110,9 +110,9 @@ public class PriceListModel {
     @SerializedName("msg")
     @Expose
     private String msg;
-    @SerializedName("_POS_Remark")
+    @SerializedName("_ud_selPriceUnitLabel")
     @Expose
-    private String pos_remark;
+    private String udSelPriceUnitLabel;
 
     /**
      * No args constructor for use in serialization
@@ -182,7 +182,7 @@ public class PriceListModel {
                           String grading, String stkFrom, String stkKey, String convQty,
                           String saleRateBeforeTax, String wasSaleRate,String saleRate, String newsaleratebeforetax,
                           String newsalerate,String noofstrickertoprint, String remarkName,String rateper,
-                          String remarkId, String stkcatrtId, String status,String udWeekImported,String dRSRate, String msg, String pos_remark) {
+                          String remarkId, String stkcatrtId, String status,String udWeekImported,String dRSRate, String msg, String udSelPriceUnitLabel) {
         super();
         this.coBrId = coBrId;
         this.itemId = itemId;
@@ -219,7 +219,7 @@ public class PriceListModel {
         this.udWeekImported = udWeekImported;
         this.dRSRate =dRSRate;
         this.msg = msg;
-        this.pos_remark = pos_remark;
+        this.udSelPriceUnitLabel = udSelPriceUnitLabel;
     }
 
     public String getCoBrId() {
@@ -503,12 +503,12 @@ public class PriceListModel {
         this.msg = msg;
     }
 
-    public String getPos_remark() {
-        return pos_remark;
+    public String getUdSelPriceUnitLabel() {
+        return udSelPriceUnitLabel;
     }
 
-    public void setPos_remark(String pos_remark) {
-        this.pos_remark = pos_remark;
+    public void setUdSelPriceUnitLabel(String udSelPriceUnitLabel) {
+        this.udSelPriceUnitLabel = udSelPriceUnitLabel;
     }
 
 }

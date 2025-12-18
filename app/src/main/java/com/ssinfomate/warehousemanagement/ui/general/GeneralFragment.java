@@ -217,7 +217,7 @@ public class GeneralFragment
         textViewProductName.setText("");
         textViewSystemQuantity.setText("");
         textViewUnit.setText("");
-        editTextRemarkOne.setText("");
+        //editTextRemarkOne.setText("");
 
     }
 
@@ -551,6 +551,7 @@ public ProgressDialog createProgressDialog(Context mContext) {
     }
 //------------------------------------------------------------------------------------------------
     public void SubmitGeneral(){
+        System.out.println("11111111111111111");
 
         UserModel userModel=AppPreference.getLoginDataPreferences(getContext());
       //  List<GeneralRemarkModel> remarkModel =AppPreference.getGeneralRemarkDataPreferences(getContext());
