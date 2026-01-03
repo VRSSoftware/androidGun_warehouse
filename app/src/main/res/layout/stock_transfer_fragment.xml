@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
     android:orientation="vertical"
-    tools:context="com.ssinfomate.warehousemanagement.ui.stocktransfer.StockTransferFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.stocktransfer.StockTransferFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

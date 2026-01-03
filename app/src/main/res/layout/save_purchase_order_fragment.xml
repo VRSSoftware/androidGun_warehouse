@@ -7,7 +7,7 @@ android:layout_height="match_parent"
 android:orientation="vertical"
 android:weightSum="1"
 android:layout_margin="5dp"
-tools:context="com.ssinfomate.warehousemanagement.ui.purchaseorder.SavePurchaseOrderFragment">
+tools:context="ie.homesavers.warehousemanagement.ui.purchaseorder.SavePurchaseOrderFragment">
 
 <androidx.appcompat.widget.AppCompatTextView
     android:layout_alignParentTop="true"

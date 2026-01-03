@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="5dp"
     android:orientation="vertical"
-    tools:context="com.ssinfomate.warehousemanagement.ui.grn.PickHeldGrnFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.grn.PickHeldGrnFragment">
     <androidx.appcompat.widget.AppCompatTextView
         style="@style/HomeSaversTextViewCompact"
         android:text="Home Savers"/>

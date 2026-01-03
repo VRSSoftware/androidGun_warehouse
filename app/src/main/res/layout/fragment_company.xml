@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context="com.ssinfomate.warehousemanagement.ui.company.CompanyFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.company.CompanyFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.appcompat.widget.AppCompatTextView

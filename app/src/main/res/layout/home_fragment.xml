@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_marginTop="20dp"
     android:background="#ffffff"
-    tools:context="com.ssinfomate.warehousemanagement.ui.home.HomeFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.home.HomeFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"

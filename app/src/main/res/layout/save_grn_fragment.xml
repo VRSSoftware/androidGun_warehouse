@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:weightSum="1"
     android:layout_margin="5dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.grn.SaveGrnFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.grn.SaveGrnFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_grn_frg_save_grn"

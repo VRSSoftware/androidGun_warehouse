@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:weightSum="1"
     android:layout_margin="5dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.grn.SaveWithPurNoFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.grn.SaveWithPurNoFragment">
 
 
     <androidx.recyclerview.widget.RecyclerView

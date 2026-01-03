@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:weightSum="1"
     android:layout_margin="5dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.stocktransfer.SaveStockTransferFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.stocktransfer.SaveStockTransferFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/id_scan_barcode"

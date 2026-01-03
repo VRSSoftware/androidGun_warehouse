@@ -3,19 +3,18 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    namespace "ie.homesavers.warehousemanagement"
+    compileSdk 35
 
     defaultConfig {
-        applicationId "com.ssinfomate.warehousemanagement"
-        minSdkVersion 16
-        targetSdkVersion 30
+        applicationId "ie.homesavers.warehousemanagement"
+        minSdk 21
+        targetSdk 35
         versionCode 1
-        versionName "3.2.3"
+        versionName "3.2.5"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "EMAIL_FOR_ACRA", "\"pandegb1994@gmail.com\""
-
     }
 
     buildTypes {
@@ -24,9 +23,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        dataBinding false
+        viewBinding true
+        buildConfig true
     }
 }
 
@@ -43,9 +49,11 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+    androidTestImplementation "androidx.test:core:1.6.1"
+    androidTestImplementation "androidx.test:runner:1.6.1"
+    androidTestImplementation "androidx.test:rules:1.6.1"
+    androidTestImplementation "androidx.test.ext:junit:1.2.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.6.1"
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
@@ -54,6 +62,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-vision:11.6.0'
 
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+    implementation 'com.google.zxing:core:3.5.3'
+
 
     //Application Crash Reports for Android(ACRA)
     def acraVersion = '5.7.0'
@@ -62,3 +73,15 @@ dependencies {
 
     compileOnly 'com.symbol:emdk:+'
 }
+
+configurations.all {
+    resolutionStrategy {
+        force "androidx.test:core:1.6.1"
+        force "androidx.test:runner:1.6.1"
+        force "androidx.test:rules:1.6.1"
+        force "androidx.test.ext:junit:1.2.1"
+        force "androidx.test.espresso:espresso-core:3.6.1"
+    }
+}
+
+

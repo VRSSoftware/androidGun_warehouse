@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="5dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.reducedbarcode.printrecucedbarcode.PrintReducedBarcodeFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.reducedbarcode.printrecucedbarcode.PrintReducedBarcodeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_margin="@dimen/activity_vertical_margin"

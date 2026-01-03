@@ -8,7 +8,7 @@
     android:weightSum="1"
     android:padding="5dp"
     android:layout_margin="5dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.stockcorrection.SaveStockCorrectionFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.stockcorrection.SaveStockCorrectionFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_adjustment_type"

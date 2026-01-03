@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.logout.LogoutFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.logout.LogoutFragment">
 
     <TextView
         android:id="@+id/text_logout"

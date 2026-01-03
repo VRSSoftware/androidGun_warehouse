@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ssinfomate.warehousemanagement.ui.acceptstocktransferList.AcceptStockTransferList">
+    tools:context="ie.homesavers.warehousemanagement.ui.acceptstocktransferList.AcceptStockTransferList">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_accept_stock_update_save"

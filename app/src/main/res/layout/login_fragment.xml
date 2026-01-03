@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:padding="@dimen/activity_vertical_margin"
-        tools:context="com.ssinfomate.warehousemanagement.ui.login.LoginFragment">
+        tools:context="ie.homesavers.warehousemanagement.ui.login.LoginFragment">
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linear_11"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
-            android:background="@color/blue_btn_bg_color"
+            android:background="@color/white"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardCornerRadius="4dp"
             app:cardElevation="4dp"

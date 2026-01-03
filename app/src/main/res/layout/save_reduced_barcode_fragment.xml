@@ -7,7 +7,7 @@
         android:orientation="vertical"
         android:weightSum="1"
         android:layout_margin="5dp"
-        tools:context="com.ssinfomate.warehousemanagement.ui.reducedbarcode.SaveReducedBarcodeFragment">
+        tools:context="ie.homesavers.warehousemanagement.ui.reducedbarcode.SaveReducedBarcodeFragment">
 
     <LinearLayout
         android:id="@+id/linear_save_reduced_barcode"

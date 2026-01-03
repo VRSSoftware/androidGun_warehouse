@@ -8,7 +8,7 @@
     android:padding="10dp"
     android:orientation="vertical"
     android:layout_marginTop="20dp"
-    tools:context="com.ssinfomate.warehousemanagement.ui.stocktransfer.CreateStockTransferFragment">
+    tools:context="ie.homesavers.warehousemanagement.ui.stocktransfer.CreateStockTransferFragment">
 
     <androidx.appcompat.widget.AppCompatTextView
        style="@style/HomeSaversTextViewCompact"
