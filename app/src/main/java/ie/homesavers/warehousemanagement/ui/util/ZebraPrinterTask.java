@@ -157,37 +157,7 @@ public class ZebraPrinterTask {
         String configLabel = null;
 
         if (checkStockModel!=null) {
-            String udSelPriceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
-
-// ZPL font settings
-            int fontHeight = 20;   // height in dots (from ^A0R,30,30)
-            int endY = 530;       // you want the last character to end here
-            int stringlen= udSelPriceUnitLabel.length();
-// Calculate dynamic start position so the text ends at Y = 1560
-            int startY = endY -  (int)(udSelPriceUnitLabel.length() * 8.5);
-
-// Ensure it doesn't go negative if string is too long
-            if (startY < 0) startY = 0;
-            //30 chars
-            int start = 275;
-            int labelLength = udSelPriceUnitLabel.length();
-
-            StringBuilder whiteSpacesBuilder = new StringBuilder();
-
-            if (labelLength < 30) {
-                int spacesToAdd = 30 - labelLength;
-                for (int i = 0; i < spacesToAdd; i++) {
-                    whiteSpacesBuilder.append("  ");
-                }
-            }
-            String whiteSpaces = whiteSpacesBuilder.toString();
-
-
-            String priceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
-            String labelWithDollar = (priceUnitLabel != null && !priceUnitLabel.equals(""))
-                    ? "$" + priceUnitLabel
-                    : "";
-
+           
 // set height add ^PW400 "^POI^PW400^MNN^LL200^LH0,0" + "\r\n" +
             configLabel =
                     "^XA" +
@@ -211,15 +181,13 @@ public class ZebraPrinterTask {
                             "^FDDept: "+checkStockModel.getItemsubgrpName()+"^FS"+
 
 
-                            "^FO150,285"+
-                            "^FB275,1,0,R,0,0"+
+                            // "^FO150,285"+
+                            // "^FB275,1,0,R,0,0"+
+                            // "^A0N,20,20"+
+                            "^FO300,285"+
+                            "^FB275,1,0,R,0"+
                             "^A0N,20,20"+
-//                            "^FD" +".$ and €."+"^FS" + checkStockModel.getUdSelPriceUnitLabel() + "^FS"+
-                            "^FD"  + labelWithDollar + "^FS"+
-//                            "^FD$"+checkStockModel.getUdSelPriceUnitLabel()+"^FS"+
-
-
-
+                            "^FD"  + checkStockModel.getUdSelPriceUnitLabel() + "^FS"+
 
                             "^FO15,210"+
                             "^A0,30,20" +
@@ -245,24 +213,6 @@ public class ZebraPrinterTask {
         String configLabel = null;
 
         if (checkStockModel!=null) {
-// set height add ^PW400 "^POI^PW400^MNN^LL1400^LH0,0" + "\r\n" +
-
-            String udSelPriceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
-
-// ZPL font settings
-            int fontHeight = 30;   // height in dots (from ^A0R,30,30)
-            int endY = 1560;       // you want the last character to end here
-
-// Calculate dynamic start position so the text ends at Y = 1560
-            int startY = endY - (udSelPriceUnitLabel.length() * fontHeight);
-
-// Ensure it doesn't go negative if string is too long
-            if (startY < 0) startY = 0;
-
-            String priceUnitLabel = checkStockModel.getUdSelPriceUnitLabel();
-            String labelWithDollar = (priceUnitLabel != null && !priceUnitLabel.equals(""))
-                    ? "$" + priceUnitLabel
-                    : "";
 
             configLabel =
                     "^XA" +
@@ -293,8 +243,7 @@ public class ZebraPrinterTask {
                             "^FO10,815"+
                             "^FB580,1,0,R,0,0"+
                             "^A0R,30,30"+
-                            "^FD" + labelWithDollar + "^FS"+
-//                            "^FD$"+checkStockModel.getUdSelPriceUnitLabel()+"^FS"+
+                           "^FD"+checkStockModel.getUdSelPriceUnitLabel()+"^FS"+
 
                             "^FO35,830^A0R,50,30" +
                             "^FDDept Number: "+checkStockModel.getItemsubgrpId()+"^FS"+

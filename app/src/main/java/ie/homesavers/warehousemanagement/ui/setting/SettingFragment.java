@@ -45,7 +45,7 @@ public class SettingFragment extends Fragment implements DialogListener, View.On
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_setting, container, false);
         textViewVersion = root.findViewById(R.id.text_setting_version);
-        textViewVersion.setText("3.2.5");
+        textViewVersion.setText("3.2.6");
         textViewDeviceId = root.findViewById(R.id.text_setting_device_id);
         String id = Settings.Secure.getString(getActivity().getContentResolver(),Settings.Secure.ANDROID_ID);
         textViewDeviceId.setText(id);
